@@ -110,6 +110,7 @@ var JitsiMeetExternalAPI = (function()
                 JSON.stringify(object), this.frame.src);
         }
         else {
+            console.log('ADDING COMMAND: ', object);
             this.initialCommands.push(object);
         }
 
@@ -329,6 +330,7 @@ var JitsiMeetExternalAPI = (function()
     JitsiMeetExternalAPI.prototype.onFrameLoaded = function () {
         this.frameLoaded = true;
         for (var i = 0; i < this.initialCommands.length; i++) {
+            console.log('EXECUTING.... ', this.initialCommands[i]);
             this.sendMessage(this.initialCommands[i]);
         }
         this.initialCommands = null;
