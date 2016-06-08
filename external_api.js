@@ -106,6 +106,7 @@ var JitsiMeetExternalAPI = (function()
      */
     JitsiMeetExternalAPI.prototype.sendMessage = function(object) {
         if (this.frameLoaded) {
+            console.log('FRAMELOADED....', object);
             this.frame.contentWindow.postMessage(
                 JSON.stringify(object), this.frame.src);
         }
